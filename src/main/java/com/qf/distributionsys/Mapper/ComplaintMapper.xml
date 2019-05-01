@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qianfeng.dao.ComplaintMapper">
+  <resultMap id="BaseResultMap" type="com.qianfeng.entity.Complaint">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="complaint_text" jdbcType="VARCHAR" property="complaintText" />
+    <result column="complaint_uid" jdbcType="INTEGER" property="complaintUid" />
+    <result column="complainted_uid" jdbcType="INTEGER" property="complaintedUid" />
+    <result column="complaint_date" jdbcType="TIMESTAMP" property="complaintDate" />
+    <result column="complaint_img" jdbcType="VARCHAR" property="complaintImg" />
+    <result column="complaint_flag" jdbcType="INTEGER" property="complaintFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, complaint_text, complaint_uid, complainted_uid, complaint_date, complaint_img, 
+    complaint_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from complaint
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from complaint
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qianfeng.entity.Complaint">
+    insert into complaint (id, complaint_text, complaint_uid, 
+      complainted_uid, complaint_date, complaint_img, 
+      complaint_flag)
+    values (#{id,jdbcType=INTEGER}, #{complaintText,jdbcType=VARCHAR}, #{complaintUid,jdbcType=INTEGER}, 
+      #{complaintedUid,jdbcType=INTEGER}, #{complaintDate,jdbcType=TIMESTAMP}, #{complaintImg,jdbcType=VARCHAR}, 
+      #{complaintFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qianfeng.entity.Complaint">
+    insert into complaint
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="complaintText != null">
+        complaint_text,
+      </if>
+      <if test="complaintUid != null">
+        complaint_uid,
+      </if>
+      <if test="complaintedUid != null">
+        complainted_uid,
+      </if>
+      <if test="complaintDate != null">
+        complaint_date,
+      </if>
+      <if test="complaintImg != null">
+        complaint_img,
+      </if>
+      <if test="complaintFlag != null">
+        complaint_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="complaintText != null">
+        #{complaintText,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintUid != null">
+        #{complaintUid,jdbcType=INTEGER},
+      </if>
+      <if test="complaintedUid != null">
+        #{complaintedUid,jdbcType=INTEGER},
+      </if>
+      <if test="complaintDate != null">
+        #{complaintDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="complaintImg != null">
+        #{complaintImg,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintFlag != null">
+        #{complaintFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qianfeng.entity.Complaint">
+    update complaint
+    <set>
+      <if test="complaintText != null">
+        complaint_text = #{complaintText,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintUid != null">
+        complaint_uid = #{complaintUid,jdbcType=INTEGER},
+      </if>
+      <if test="complaintedUid != null">
+        complainted_uid = #{complaintedUid,jdbcType=INTEGER},
+      </if>
+      <if test="complaintDate != null">
+        complaint_date = #{complaintDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="complaintImg != null">
+        complaint_img = #{complaintImg,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintFlag != null">
+        complaint_flag = #{complaintFlag,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qianfeng.entity.Complaint">
+    update complaint
+    set complaint_text = #{complaintText,jdbcType=VARCHAR},
+      complaint_uid = #{complaintUid,jdbcType=INTEGER},
+      complainted_uid = #{complaintedUid,jdbcType=INTEGER},
+      complaint_date = #{complaintDate,jdbcType=TIMESTAMP},
+      complaint_img = #{complaintImg,jdbcType=VARCHAR},
+      complaint_flag = #{complaintFlag,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
