@@ -1,0 +1,20 @@
+server:
+  port: 10011
+#\u6570\u636E\u5E93\u914D\u7F6E
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.8.159.39/db_sale?serverTimezone=UTC&characterEncoding=UTF8
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+ # application:
+ #  name: UserProvider
+#eureka:
+ # client:
+  #  serviceUrl:
+   #   defaultZone: http://localhost:8761/eureka/
+#mybatis:
+#  mapper-locations:
