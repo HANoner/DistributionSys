@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="form" id="form" action="check/save.do" method="post" enctype="multipart/form-data">
+    <input type="text" name="checkid" value="1">
+    <input type="text" name="uid" value="2">
+
+    <input type="file" name="behindimg" id="behindimg" accept="image/png, image/jpeg, image/jpg" multiple="multiple" onchange="checkImage(this)">
+    <input type="file" name="frontimg" id="frontimg" accept="image/png, image/jpeg, image/jpg" multiple="multiple" onchange="checkImage(this)">
+
+    <input type="submit" value="上传"/>
+</form>
+
+</body>
+</html>
