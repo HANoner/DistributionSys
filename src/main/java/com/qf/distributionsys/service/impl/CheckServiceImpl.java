@@ -74,6 +74,11 @@ public class CheckServiceImpl extends ServiceImpl<CheckDao, Chenk>  implements C
       chenk.setFrontimg(path.get(1));
       checkDao.insertRecord(chenk);
   }
+
+    @Override
+    public int searchChecked(int uid) {
+        return checkDao.selectCheckedId(uid);
+    }
 }
 
 

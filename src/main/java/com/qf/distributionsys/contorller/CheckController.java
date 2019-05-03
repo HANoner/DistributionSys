@@ -20,7 +20,7 @@ public class CheckController {
     //增加投诉记录
     @PostMapping("/check/save.do")
     @ApiOperation(value = "上传身份证正反面",notes = "上传照片")
-    public ResultVO save(@ApiParam(name = "checkuid" ,value = "审核人id") @RequestParam("checkid") int checkid,@ApiParam(name = "uid",value = "申请人id") @RequestParam("uid") int uid, @ApiParam(name = "behindimg",value = "身份证反面照片")@RequestParam("behindimg") MultipartFile behindimg,@ApiParam(name = "frontimg",value = "身份证正面照片") @RequestParam("frontimg") MultipartFile frontimg){
+    public ResultVO save(@RequestParam("checkid") int checkid,@ApiParam(name = "uid",value = "申请人id") @RequestParam("uid") int uid, @ApiParam(name = "behindimg",value = "身份证反面照片")@RequestParam("behindimg") MultipartFile behindimg,@ApiParam(name = "frontimg",value = "身份证正面照片") @RequestParam("frontimg") MultipartFile frontimg){
         checkService.insert(checkid,uid,behindimg,frontimg);
         return ResultUtil.setOK();
     }
