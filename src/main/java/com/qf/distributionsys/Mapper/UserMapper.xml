@@ -150,4 +150,8 @@
       flag = #{flag,jdbcType=INTEGER}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+
+  <select id="findLastUser" resultType="com.qf.distributionsys.entity.User">
+    select * from  user order by uid desc limit 1
+  </select>
 </mapper>

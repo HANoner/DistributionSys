@@ -1,6 +1,7 @@
 package com.qf.distributionsys.dao;
 
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qf.distributionsys.entity.Chenk;
 
 public interface ChenkMapper {
