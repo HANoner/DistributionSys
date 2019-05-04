@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.qf.distributionsys.entity.Chenk;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -18,7 +19,11 @@ public interface CheckDao extends BaseMapper<Chenk> {
     public int selectCheckedId(int uid);
 
     //审核列表（查找本人需要审核的所有信息）
-    @Select("select * from `check` where checkuid = #{uid}")
+    @Select("select * from `check` where checkuid = #{uid} and flag = 1")
     public List<Chenk> findAllCheck(int uid);
 
+    //重写更新方法
+    @Update(" UPDATE `check`  SET flag=#{flag}  WHERE id=#{id}")
+    public boolean newUpdate(Chenk chenk);
 }
+

@@ -14,4 +14,9 @@ public interface CheckService extends IService<Chenk> {
 
     //审核列表
     public List<Chenk> searchAllCheck(int uid);
+
+    //更新
+    public boolean newUpdateCheck(Chenk chenk);
+
+
 }

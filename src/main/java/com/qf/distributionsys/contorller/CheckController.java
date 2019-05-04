@@ -8,10 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -34,5 +31,15 @@ public class CheckController {
     public  ResultVO list(int uid){
         List<Chenk> list = checkService.searchAllCheck(uid);
         return  ResultUtil.exec(true,"审核列表加载成功",list);
+    }
+
+    //审核
+    @PutMapping("check/update.do")
+    public ResultVO updateFlag(int id){
+        Chenk chenk = new Chenk();
+        chenk.setId(id);
+        chenk.setFlag(3);
+        checkService.newUpdateCheck(chenk);
+        return  ResultUtil.setOK();
     }
 }
