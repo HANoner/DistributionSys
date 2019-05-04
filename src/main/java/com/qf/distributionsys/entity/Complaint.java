@@ -1,8 +1,13 @@
 package com.qf.distributionsys.entity;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 
+import java.util.Date;
+@TableName(value = "complaint")
 public class Complaint {
+    @TableId(value = "id",type = IdType.AUTO)
     private Integer id;
 
     private String complaintText;

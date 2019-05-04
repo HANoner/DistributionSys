@@ -6,7 +6,9 @@ import com.qf.distributionsys.entity.Complaint;
 import com.qf.distributionsys.service.ComplainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 @RestController
@@ -22,6 +24,14 @@ public class ComplainController {
             System.out.println(complaint.getComplaintedUid());
         }
         return ResultUtil.exec(true,"展示成功",list);
+    }
+
+    //添加投诉
+    @PostMapping("complaint/add.do")
+    public  ResultVO add(Complaint complaint, MultipartFile picture){
+        //添加在serviceimpl里面进行处理
+        complainService.add(complaint,picture);
+        return  ResultUtil.setOK();
     }
 
 }

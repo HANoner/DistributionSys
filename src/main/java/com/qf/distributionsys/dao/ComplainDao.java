@@ -11,4 +11,8 @@ public interface ComplainDao extends BaseMapper<Complaint> {
     @Select("select * from complaint where complaint_uid = #{uid}")
     public List<Complaint> findAll(int uid);
 
+    //添加投诉记录利用内置save
+
+
+
 }
