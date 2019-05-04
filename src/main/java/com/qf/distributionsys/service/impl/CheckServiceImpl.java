@@ -79,6 +79,11 @@ public class CheckServiceImpl extends ServiceImpl<CheckDao, Chenk>  implements C
     public int searchChecked(int uid) {
         return checkDao.selectCheckedId(uid);
     }
+
+    @Override
+    public List<Chenk> searchAllCheck(int uid) {
+        return checkDao.findAllCheck(uid);
+    }
 }
 
 
