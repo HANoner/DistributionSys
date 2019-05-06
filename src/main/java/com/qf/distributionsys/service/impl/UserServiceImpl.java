@@ -83,7 +83,7 @@ public class UserServiceImpl extends ServiceImpl<Userdao,User> implements UserSe
 				//记录Token有效期30分钟
 				jedisUtil.setStr("user:"+findUser.getPhone(),token,1800);
 				/*System.out.println(jedisUtil.getStr("user:"+findUser.getPhone()));*/
-				//记录当前登录用户的详细信息
+				//记录当前登录用户的详细信
 				jedisUtil.setStr(token,JSON.toJSONString(findUser),1800);
 				/*如果选择记住密码，则生成cookie*/
 

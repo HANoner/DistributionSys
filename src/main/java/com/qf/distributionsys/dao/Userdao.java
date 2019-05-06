@@ -19,4 +19,6 @@ public interface Userdao extends BaseMapper<User>{
 	@ResultType(User.class)
 	public User findLastUser();
 
+
+
 }
